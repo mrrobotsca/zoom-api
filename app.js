@@ -172,7 +172,7 @@ app.post('/rooms', (req, res) => {
 
   
   //done
-  app.post('/users/:userId/meetings', (req, res) => {
+  app.post('/createMeating', (req, res) => {
     //store the email address of the user in the email variable
     userId = req.params.userId;
     //Store the options for Zoom API which will be used to make an API call later.
