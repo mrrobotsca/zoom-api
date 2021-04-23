@@ -29,7 +29,7 @@ const payload = {
 const token = jwt.sign(payload, process.env.ZOOM_JWT_API_SECRET);
 
 // Create signature
-app.get('/', (req, res) => {
+app.get('/signature', (req, res) => {
 
     const timestamp = new Date().getTime() - 30000
     const msg = Buffer.from(process.env.ZOOM_JWT_API_KEY + req.body.meetingNumber + timestamp + req.body.role).toString('base64')
