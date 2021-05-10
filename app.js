@@ -96,17 +96,19 @@ app.post('/users', (req, res) => {
           'content-type': 'application/json'
       },
       body:{
-        action: "custCreate",
-        user_info: {
-          email: userEmail,
-          type: 1,
-          first_name: userFirstName,
-          last_name: userLastName
+        "action": "custCreate",
+        "user_info": {
+          "email": userEmail,
+          "type": 1,
+          "first_name": userFirstName,
+          "last_name": userLastName
         }
       },
       json: true //Parse the JSON string in the response
 
     };
+
+    console.log('Options ', )
     rp(options)
       .then(function (response) {
           resp = response
