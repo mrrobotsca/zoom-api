@@ -40,6 +40,8 @@ app.get('/signature', (req, res) => {
       signature: signature
     })
 
+    console.log('Token', signature)
+
     res.send(signature);
 })
 
@@ -76,9 +78,13 @@ app.get('/rooms', (req, res) => {
   
 });
 app.post('/users', (req, res) => {
+
+    userEmail = req.body.email;
+    userFirstName = req.body.first_name;
+    userLastName = req.body.last_name;
     var options = {
-      
-      uri: "https://api.zoom.us/v2/rooms", 
+      method: 'POST',
+      uri: "https://api.zoom.us/v2/users", 
       qs: {
           status: 'active' 
       },
@@ -90,12 +96,12 @@ app.post('/users', (req, res) => {
           'content-type': 'application/json'
       },
       body:{
-        "action": "create",
-        "user_info": {
-          "email": "dhjdfkghdskjf@fgkjfdlgjfkd.gh",
-          "type": 1,
-          "first_name": "Terry",
-          "last_name": "Jones"
+        action: "custCreate",
+        user_info: {
+          email: userEmail,
+          type: 1,
+          first_name: userFirstName,
+          last_name: userLastName
         }
       },
       json: true //Parse the JSON string in the response
@@ -107,6 +113,7 @@ app.post('/users', (req, res) => {
           //Adding html to the page
           //Prettify the JSON format using pre tag and JSON.stringify
           var result = JSON.stringify(resp, null, 2)
+          console.log(result)
           res.send(result);
       })
       .catch(function (err) {
@@ -292,7 +299,6 @@ app.post('/rooms', (req, res) => {
   
   //done
   app.post('/users/:userId/meetings', (req, res) => {
-    //store the email address of the user in the email variable
     userId = req.params.userId;
     //Store the options for Zoom API which will be used to make an API call later.
     var options = {
