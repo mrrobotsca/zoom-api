@@ -52,6 +52,7 @@ const rooms = require('./routers/rooms');
 const pastMeetings = require('./routers/pastMeetings');
 
 const meetingWebhook = require('./webhooks/meeting');
+const recordingWebhook = require('./webhooks/recording');
 
 /* Routes */
 
@@ -60,6 +61,8 @@ app.use('/past_meetings', pastMeetings);
 app.use('/users', users);
 app.use('/rooms', rooms);
 app.use('/meetingEvents', meetingWebhook);
+app.use('/recordingEvents', recordingWebhook);
+
 
 
 

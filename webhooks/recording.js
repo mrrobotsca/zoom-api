@@ -17,7 +17,7 @@ const token = jwt.sign(payload, process.env.ZOOM_JWT_API_SECRET);
 router.post('/', (req, res) => {
 
     let event;
-    console.log("Meeting event called",req.body.event)
+    console.log("Recording event called",req.body.event)
     try {
         event = JSON.parse(req.body);
     } catch (err) {
@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     if (req.headers.authorization === process.env.VERIFICATION_TOKEN) {
         res.status(200);
 
-        console.log("Meeting Ended Webhook Recieved.") 
+        console.log("Recording Ended Webhook Recieved.") 
 
     }
 
