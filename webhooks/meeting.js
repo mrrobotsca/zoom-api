@@ -17,7 +17,7 @@ const token = jwt.sign(payload, process.env.ZOOM_JWT_API_SECRET);
 router.post('/', bodyParser.raw({ type: 'application/json' }), (req, res) => {
 
     let event;
-    console.log("event called",req.body,res)
+    console.log("event called",req.body.event)
     try {
         event = JSON.parse(req.body);
     } catch (err) {
