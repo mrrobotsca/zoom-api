@@ -4,7 +4,8 @@ const env = process.env.NODE_ENV || 'production'
 const config = {
 	development :{
 		APIKey : 'O637iwu8R4m4YU0OHo6g8A',
-		APISecret : 'SEarvFR7vxHXGlRkC5XsPPaoE13CR0x7eFVs'
+		APISecret : 'SEarvFR7vxHXGlRkC5XsPPaoE13CR0x7eFVs',
+		EventsApi:'xf8IZXDtS269zakrkLFFWA'
 	},
 	production:{	
 		APIKey : 'O637iwu8R4m4YU0OHo6g8A',
